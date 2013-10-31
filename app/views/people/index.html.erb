@@ -1,0 +1,10 @@
+<h1> GRÜßE COMMANDER</h1>
+<ul>
+<% @people.each do  |person| %>
+   <li><div>Hello <%= determine_salutation(person.gender)%><span class="username"><%= person.name %><span></div></li>
+<% end %>
+</ul>
+<br>
+<a id="click_me" href="/list/female">Klick mich für Frauen</a>
+<a id="click_me" href="/list/male">Klick mich für Männer</a>
+

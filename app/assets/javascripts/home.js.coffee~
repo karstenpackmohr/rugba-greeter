@@ -1,0 +1,4 @@
+$ ->
+  $('#click_me').click -> 
+    alert('Hello! ' + @user_name)
+

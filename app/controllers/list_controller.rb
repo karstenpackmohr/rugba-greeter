@@ -1,0 +1,27 @@
+require 'open-uri'
+class ListController < ApplicationController
+
+  def female
+    html = open('http://www.ta7.de/txt/listen/list0013.htm').read
+    start = html.index("</titel></b></u>\n\n") + ("</titel></b></u>\n\n").length
+    endpoint = html.index("</p>")-1
+    html = html[start..endpoint]
+    @array = html.split("\n")
+  end
+
+  def male
+    html = open('http://www.ta7.de/txt/listen/list0014.htm').read
+    start = html.index("<p>")+ ("<p>").length
+    endpoint = html.index("</p>")-1
+    html = html[start..endpoint]
+    @array = html.split("<br>\n")
+  end
+
+  def add
+    person = Person.new
+    person.name = params[:name]
+    person.gender = params[:gender]
+    person.save
+    redirect_to '/home'
+  end
+end
