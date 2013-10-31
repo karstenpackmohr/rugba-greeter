@@ -1,7 +1,2 @@
-<% @array.each do |female| %>
-  <%= form_tag(people_path, id: female) do %>
-    <input type="hidden" name="name" value=<%=female%>>
-    <input type="hidden" name="gender" value="female">
-    <a href="javascript:{}" onclick="document.getElementById('<%=female%>').submit(); return false;"><%=female%></a>
-  <% end %>
-<% end %>
+<%= render :partial => 'new_form', :locals => { gender: 'female' } %>
+

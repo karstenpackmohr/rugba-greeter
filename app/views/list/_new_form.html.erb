@@ -1,0 +1,8 @@
+<% @array[0, 20].each do |name| %>
+  <button class="create_person"><%= name %></button>
+<% end %>
+
+<%= form_for(Person.new(gender: gender )) do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :gender %>
+<% end %>

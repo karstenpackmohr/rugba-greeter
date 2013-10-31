@@ -1,0 +1,7 @@
+<% @array.each do |name| %>
+  <%= form_tag(people_path, id: name) do %>
+    <%= hidden_field_tag 'person[name]', name %>
+    <%= hidden_field_tag 'person[gender]', 'female' %>
+    <a href="javascript:{}" onclick="document.getElementById('<%= name %>').submit(); return false;"><%= name %></a>
+  <% end %>
+<% end %>

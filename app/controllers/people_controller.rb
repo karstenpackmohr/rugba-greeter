@@ -8,10 +8,13 @@ class PeopleController < ApplicationController
   end
 
   def create
-    person = Person.new
-    person.name = params[:name]
-    person.gender = params[:gender]
-    person.save
+    Person.create(person_params)
     redirect_to people_path
+  end
+
+  # needed for mass-assignment
+  # strong-parameters since rails 4
+  def person_params
+    params.require(:person).permit(:name, :gender)
   end
 end
